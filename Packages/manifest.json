@@ -7,6 +7,7 @@
     "com.microsoft.mixedreality.toolkit.standardassets": "file:MixedReality/com.microsoft.mixedreality.toolkit.standardassets-2.8.3.tgz",
     "com.microsoft.mixedreality.toolkit.testutilities": "file:MixedReality/com.microsoft.mixedreality.toolkit.testutilities-2.8.3.tgz",
     "com.microsoft.mixedreality.toolkit.tools": "file:MixedReality/com.microsoft.mixedreality.toolkit.tools-2.8.3.tgz",
+    "com.unity.ide.rider": "3.0.31",
     "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.xr.openxr": "1.12.1",
     "com.unity.modules.ai": "1.0.0",

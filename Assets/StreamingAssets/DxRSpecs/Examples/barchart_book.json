@@ -1,0 +1,47 @@
+{
+  "width" : 550,
+  "data" : {
+    "url" : "baseball.csv"
+  },
+  "mark" : "book",
+  "encoding" : {
+    "x" : {
+      "field" : "undefined",
+      "type" : "nominal",
+      "axis" : {
+        "titlePadding" : 100
+      }
+    },
+    "y" : {
+      "field" : "undefined",
+      "type" : "quantitative",
+      "scale" : {
+        "domain" : [
+          0,
+          100
+        ]
+      }
+    },
+    "height" : {
+      "field" : "undefined",
+      "type" : "quantitative",
+      "scale" : {
+        "domain" : [
+          0,
+          100
+        ]
+      }
+    },
+    "yrotation" : {
+      "value" : 180
+    },
+    "zoffset" : {
+      "value" : 80
+    },
+    "yoffsetpct" : {
+      "value" : -1
+    }
+  },
+  "height" : 500,
+  "depth" : 500
+}

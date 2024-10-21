@@ -1,0 +1,86 @@
+{
+  "data" : {
+    "values" : [
+      {
+        "horsename" : "A",
+        "speed" : 28
+      },
+      {
+        "horsename" : "B",
+        "speed" : 55
+      },
+      {
+        "horsename" : "C",
+        "speed" : 43
+      },
+      {
+        "horsename" : "D",
+        "speed" : 91
+      },
+      {
+        "horsename" : "E",
+        "speed" : 81
+      },
+      {
+        "horsename" : "F",
+        "speed" : 53
+      },
+      {
+        "horsename" : "G",
+        "speed" : 19
+      },
+      {
+        "horsename" : "H",
+        "speed" : 87
+      },
+      {
+        "horsename" : "I",
+        "speed" : 52
+      }
+    ],
+    "url" : "inline"
+  },
+  "mark" : "horse",
+  "encoding" : {
+    "x" : {
+      "field" : "undefined",
+      "type" : "quantitative",
+      "axis" : {
+        "title" : "Racehorse Name"
+      }
+    },
+    "y" : {
+      "field" : "undefined",
+      "type" : "quantitative",
+      "scale" : {
+        "domain" : [
+          0,
+          100
+        ]
+      },
+      "axis" : {
+        "title" : "Speed (mph)",
+        "ticks" : true,
+        "tickCount" : 6,
+        "values" : [
+          "0",
+          "20",
+          "40",
+          "60",
+          "80",
+          "100"
+        ],
+        "labels" : true
+      }
+    },
+    "size" : {
+      "value" : 30
+    },
+    "xrotation" : {
+      "value" : -90
+    }
+  },
+  "width" : 500,
+  "height" : 500,
+  "depth" : 500
+}
