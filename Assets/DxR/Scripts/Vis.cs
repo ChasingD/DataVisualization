@@ -109,7 +109,8 @@ namespace DxR
 
             if (viewParentObject == null || marksParentObject == null)
             {
-                throw new Exception("Unable to load DxRView and/or DxRMarks objects.");
+                print("Unable to load DxRView and/or DxRMarks objects.");
+                return;
             }
 
             parser = new Parser();
@@ -277,7 +278,8 @@ namespace DxR
             }
             else
             {
-                throw new Exception("Cannot find legend prefab.");
+                print("Cannot find legend prefab.");
+                return;
             }
         }
 
@@ -314,7 +316,8 @@ namespace DxR
             }
             else
             {
-                throw new Exception("Cannot find axis prefab.");
+                print("Cannot find axis prefab.");
+                return;
             }
         }
 
@@ -350,7 +353,8 @@ namespace DxR
                 Mark markComponent = markInstances[i].GetComponent<Mark>();
                 if (markComponent == null)
                 {
-                    throw new Exception("Mark component not present in mark prefab.");
+                    print("Mark component not present in mark prefab.");
+                    return;
                 }
 
                 if (channelEncoding.value != DxR.Vis.UNDEFINED)
@@ -426,7 +430,9 @@ namespace DxR
                     // Check validity of data field
                     if(!data.fieldNames.Contains(channelEncoding.field))
                     {
-                        throw new Exception("Cannot find data field " + channelEncoding.field + " in data. Please check your spelling (case sensitive).");
+                        // throw new Exception("Cannot find data field " + channelEncoding.field + " in data. Please check your spelling (case sensitive).");
+                        print("Cannot find data field " + channelEncoding.field + " in data. Please check your spelling (case sensitive).");
+                        return;
                     }
 
                     if (channelSpecs["type"] != null)
@@ -435,7 +441,9 @@ namespace DxR
                     }
                     else
                     {
-                        throw new Exception("Missing type for field in channel " + channelEncoding.channel);
+                        // throw new Exception("Missing type for field in channel " + channelEncoding.channel);
+                        print("Missing type for field in channel " + channelEncoding.channel);
+                        return;
                     }
                 }
 
@@ -514,7 +522,8 @@ namespace DxR
             }
             else
             {
-                throw new Exception("Cannot perform inferrence without mark prefab loaded.");
+                print("Cannot perform inferrence without mark prefab loaded.");
+                return;
             }
         }
 
@@ -531,7 +540,8 @@ namespace DxR
 
             if (markPrefabResult == null)
             {
-                throw new Exception("Cannot load mark " + markNameLowerCase);
+                print("Cannot load mark " + markNameLowerCase);
+                return null;
             }
             else if (verbose)
             {

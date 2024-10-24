@@ -149,7 +149,8 @@ namespace DxR
                 {
                     if (channelSpecs["field"] == null)
                     {
-                        throw new Exception("Missing field in channel " + channelEncoding.channel);
+                        // throw new Exception("Missing field in channel " + channelEncoding.channel);
+                        print("Missing field in channel " + channelEncoding.channel);
                     }
                     else
                     {
@@ -158,7 +159,8 @@ namespace DxR
                         // Check validity of data field
                         if (!data.fieldNames.Contains(channelEncoding.field))
                         {
-                            throw new Exception("Cannot find data field " + channelEncoding.field + " in data. Please check your spelling (case sensitive).");
+                            // throw new Exception("Cannot find data field " + channelEncoding.field + " in data. Please check your spelling (case sensitive).");
+                            print("Cannot find data field " + channelEncoding.field + " in data. Please check your spelling (case sensitive).");
                         }
 
                         if (channelSpecs["type"] != null)
@@ -167,7 +169,8 @@ namespace DxR
                         }
                         else
                         {
-                            throw new Exception("Missing field data type in channel " + channelEncoding.channel);
+                            // throw new Exception("Missing field data type in channel " + channelEncoding.channel);
+                            print("Missing field data type in channel " + channelEncoding.channel);
                         }
                     }
 
@@ -203,7 +206,8 @@ namespace DxR
                         // Check validity of data field
                         if (!data.fieldNames.Contains(ch.field))
                         {
-                            throw new Exception("Cannot find data field " + ch.field + " in data (check your interaction specs). Please check your spelling (case sensitive).");
+                            // throw new Exception("Cannot find data field " + ch.field + " in data (check your interaction specs). Please check your spelling (case sensitive).");
+                            print("Cannot find data field " + ch.field + " in data (check your interaction specs). Please check your spelling (case sensitive).");
                         }
 
                         ch.channel = "color";
