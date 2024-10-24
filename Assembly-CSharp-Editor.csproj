@@ -751,8 +751,8 @@
     <Reference Include="Unity.XR.ARFoundation.VisualScripting.Editor">
       <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Unity.XR.ARFoundation.VisualScripting.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.MixedReality.Toolkit.Editor.BuildAndDeploy">
-      <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Editor.BuildAndDeploy.dll</HintPath>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.OpenXR.Features.ConformanceAutomation">
       <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.ConformanceAutomation.dll</HintPath>
@@ -760,8 +760,8 @@
     <Reference Include="Unity.XR.ARSubsystems.Editor">
       <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Unity.XR.ARSubsystems.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    <Reference Include="Microsoft.MixedReality.Toolkit.Editor.BuildAndDeploy">
+      <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Editor.BuildAndDeploy.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.OpenXR.Features.OculusQuestSupport.Editor">
       <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.OculusQuestSupport.Editor.dll</HintPath>
@@ -814,11 +814,11 @@
     <Reference Include="Microsoft.MixedReality.Toolkit.Services.SpatialAwarenessSystem">
       <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Services.SpatialAwarenessSystem.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.MixedReality.Toolkit.Extensions.HandPhysics">
-      <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Extensions.HandPhysics.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.XR.ARFoundation.Editor">
       <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Unity.XR.ARFoundation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.MixedReality.Toolkit.Extensions.HandPhysics">
+      <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Microsoft.MixedReality.Toolkit.Extensions.HandPhysics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.MixedReality.OpenXR">
       <HintPath>D:\Projects\DataVisualization\Library\ScriptAssemblies\Microsoft.MixedReality.OpenXR.dll</HintPath>
@@ -970,6 +970,10 @@
       <Project>{c500c673-ae2c-7694-d0b0-3973eef0370a}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="UniTask.Addressables.csproj">
+      <Project>{f1de88c2-8549-58f3-70cc-9a4a50cb4621}</Project>
+      <Name>UniTask.Addressables</Name>
+    </ProjectReference>
     <ProjectReference Include="Mirror.Editor.csproj">
       <Project>{e3503797-f22d-f5b2-718e-ce25f267ff50}</Project>
       <Name>Mirror.Editor</Name>
@@ -978,9 +982,17 @@
       <Project>{ea0d4cc1-b0e6-c5e0-f2ab-c829833568e0}</Project>
       <Name>Telepathy</Name>
     </ProjectReference>
+    <ProjectReference Include="UniTask.csproj">
+      <Project>{a60b2254-9a13-e5b3-6c2c-af96f1baf7d0}</Project>
+      <Name>UniTask</Name>
+    </ProjectReference>
     <ProjectReference Include="Mirror.Examples.csproj">
       <Project>{6660b020-ae3f-972b-5270-ce1c216e0057}</Project>
       <Name>Mirror.Examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.TextMeshPro.csproj">
+      <Project>{c9adf184-c493-5410-a032-9a57333e864d}</Project>
+      <Name>UniTask.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="Edgegap.csproj">
       <Project>{b2fba8c6-205c-680b-71ae-401d57f54c33}</Project>
@@ -989,6 +1001,10 @@
     <ProjectReference Include="kcp2k.csproj">
       <Project>{7bd0a1e6-dd58-e45f-47c6-1d35136c553a}</Project>
       <Name>kcp2k</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Linq.csproj">
+      <Project>{5bd58151-ed41-214f-af86-505bb1a6777d}</Project>
+      <Name>UniTask.Linq</Name>
     </ProjectReference>
     <ProjectReference Include="EncryptionTransportEditor.csproj">
       <Project>{07c88644-e521-350a-27c1-fa1ebaf5ea02}</Project>
@@ -1017,6 +1033,10 @@
     <ProjectReference Include="Mirror.Authenticators.csproj">
       <Project>{1d517ec2-4103-aa39-5349-06c66084b7d8}</Project>
       <Name>Mirror.Authenticators</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.DOTween.csproj">
+      <Project>{92c57ec6-f3e5-4ee5-4b14-47bc9ec1a762}</Project>
+      <Name>UniTask.DOTween</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

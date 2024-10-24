@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/DataVisualization/Scenes/Network.unity
+    guid: 9ccfc39d7a5f0da4cb9967e59f765fd3
+  - enabled: 1
+    path: Assets/DataVisualization/Scenes/DataVisualization.unity
+    guid: be13f871e74503b47bd7ced2be0a364b
   m_configObjects:
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: ccfacdc9fd21e914a835d7be81ab18cf, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ae777fe08dfcd6a4c99b14d7a7ba3bc6, type: 2}

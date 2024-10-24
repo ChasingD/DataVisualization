@@ -1,0 +1,3 @@
+[submodule "Assets/module_session"]
+	path = Assets/module_session
+	url = http://192.168.0.121:8010/modules/module_session.git

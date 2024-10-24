@@ -19,8 +19,8 @@ namespace DxR
     {
         Vis targetVis = null;
         JSONNode guiVisSpecs = null;
-        Dropdown dataDropdown = null;
-        Dropdown markDropdown = null;
+        public Dropdown dataDropdown = null;
+        public Dropdown markDropdown = null;
         
         Transform addChannelButtonTransform = null;
         GameObject channelGUIPrefab = null;

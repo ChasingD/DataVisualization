@@ -142,8 +142,8 @@
     <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\PlayerEmpty.cs" />
     <Compile Include="Assets\Mirror\Examples\Benchmark\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Mirror\Examples\Benchmark\Scripts\MonsterMovement.cs" />
-    <Compile Include="Assets\Mirror\Examples\Chat\Scripts\ChatAuthenticator.cs" />
     <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\CharacterSelection.cs" />
+    <Compile Include="Assets\Mirror\Examples\Chat\Scripts\ChatAuthenticator.cs" />
     <Compile Include="Assets\Mirror\Examples\TopDownShooter\Scripts\EnemyTopDown.cs" />
     <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\MatchNetworkManager.cs" />
     <Compile Include="Assets\Mirror\Examples\_Common\Scripts\CanvasNetworkManagerHUD\CanvasNetworkManagerHUD.cs" />

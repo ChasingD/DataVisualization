@@ -1,58 +1,48 @@
 {
-  "data" : {
-    "values" : [
-      {
-        "horsename" : "A",
-        "speed" : 28
-      },
-      {
-        "horsename" : "B",
-        "speed" : 55
-      },
-      {
-        "horsename" : "C",
-        "speed" : 43
-      },
-      {
-        "horsename" : "D",
-        "speed" : 91
-      },
-      {
-        "horsename" : "E",
-        "speed" : 81
-      },
-      {
-        "horsename" : "F",
-        "speed" : 53
-      },
-      {
-        "horsename" : "G",
-        "speed" : 19
-      },
-      {
-        "horsename" : "H",
-        "speed" : 87
-      },
-      {
-        "horsename" : "I",
-        "speed" : 52
-      }
-    ],
-    "url" : "inline"
+  "data": {
+    "values": [
+     {"horsename": "A", "speed": 28},
+      {"horsename": "B", "speed": 55},
+      {"horsename": "C", "speed": 43},
+      {"horsename": "D", "speed": 91},
+      {"horsename": "E", "speed": 81},
+      {"horsename": "F", "speed": 53},
+      {"horsename": "G", "speed": 19},
+      {"horsename": "H", "speed": 87},
+      {"horsename": "I", "speed": 52}
+    ]
   },
-  "mark" : "cone",
-  "encoding" : {
-    "color" : {
-      "value" : "#2ca25f"
+  "mark": "cube",
+  "encoding": {
+    "x": {
+      "field": "horsename",
+      "type": "nominal",
+      "axis": "none"
     },
-    "yoffsetpct" : {
-      "value" : -0.5
+    "y": {
+      "field": "speed",
+      "type": "quantitative",
+      "scale": {
+        "domain": [ 0, 100 ]
+      },
+      "axis": "none"
     },
-    "width" : {
-      "value" : 30
+    "height": {
+      "field": "speed",
+      "type": "quantitative",
+      "scale": {
+        "domain": [ 0, 100 ]
+      },
+      "axis": "none"
+    },
+    "color": {
+      "value": "#2ca25f"
+    },
+    "yoffsetpct": {
+      "value": -0.5
+    },
+    "width": {
+      "value": 30
     }
-  },
-  "width" : 500,
-  "height" : 500,
-  "depth" : 500
+  }
 }
