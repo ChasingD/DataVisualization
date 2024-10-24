@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using DataVisualization.Scripts;
 using Mirror;
 using Mirror.Discovery;
 using TMPro;
@@ -38,7 +39,7 @@ namespace Module.Session
         /// <summary>
         /// The transform of the shared world anchor.
         /// </summary>
-        private Transform sharedWorldAnchorTransform;
+        // private Transform sharedWorldAnchorTransform;
 
         public TMP_Text playerNameText;
         public Image playerPlateImage;
@@ -313,8 +314,8 @@ namespace Module.Session
                 // HostIP = networkDiscovery.LocalIp;
             }
 
-            sharedWorldAnchorTransform = SharedCollection.Instance.root;
-            transform.SetParent(sharedWorldAnchorTransform);
+            // sharedWorldAnchorTransform = SharedCollection.Instance.root;
+            transform.SetParent(RootCollection.Instance.transform);
             // AuthorityController.Instance?.playerObjects.Add(this.gameObject);
             // AuthorityController.Instance?.AuthorityInit();
 
@@ -414,21 +415,21 @@ namespace Module.Session
 
         private void Update()
         {
-            if (_createAnchor
-#if UNITY_UWP || WINDOWS_UWP
-#if UNITY_2019_4
-                &&
-                WorldAnchorManager.Instance != null &&
-                WorldAnchorManager.Instance.AnchorStore != null
-#endif
-#endif
-               )
-            {
-                Debug.Log("Creating Anchor.");
-                _createAnchor = false;
-                Debug.Log(UNetAnchorManager.Instance.name + "CreateAnchor*****");
-                UNetAnchorManager.Instance.CreateAnchor();
-            }
+//             if (_createAnchor
+// #if UNITY_UWP || WINDOWS_UWP
+// #if UNITY_2019_4
+//                 &&
+//                 WorldAnchorManager.Instance != null &&
+//                 WorldAnchorManager.Instance.AnchorStore != null
+// #endif
+// #endif
+//                )
+//             {
+//                 Debug.Log("Creating Anchor.");
+//                 _createAnchor = false;
+//                 Debug.Log(UNetAnchorManager.Instance.name + "CreateAnchor*****");
+//                 UNetAnchorManager.Instance.CreateAnchor();
+//             }
 
             // if (isServer && isLocalPlayer)
             // {
