@@ -93,6 +93,7 @@
     <Compile Include="Assets\module_session_new\Scripts\LanRoomController.cs" />
     <Compile Include="Assets\DxR\Scripts\Data.cs" />
     <Compile Include="Assets\module_session_new\Scripts\RoomController.cs" />
+    <Compile Include="Assets\DataVisualization\Scripts\HandMenuAction.cs" />
     <Compile Include="Assets\module_session_new\Scripts\NetworkDiscoveryWithAnchors.cs" />
     <Compile Include="Assets\DxR\Resources\Marks\audio\pitch.cs" />
     <Compile Include="Assets\DxR\Scripts\GazeResponder.cs" />

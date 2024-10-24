@@ -1,4 +1,6 @@
-﻿using Mirror;
+﻿using System;
+using DxR;
+using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +9,11 @@ namespace DataVisualization.Scripts
     public class DxrSyncController : NetworkBehaviour
     {
         public DxR.GUI gui;
+
+        private void Start()
+        {
+            transform.SetParent(RootCollection.Instance.transform);
+        }
 
         #region data
 
@@ -24,6 +31,14 @@ namespace DataVisualization.Scripts
             dataDropdownIndex = index;
         }
 
+        public void SetDataDropdownIndex(int index)
+        {
+            if (NetworkClient.active)
+            {
+                CmdSetDataDropdownIndex(index);
+            }
+        }
+
         #endregion
 
         #region mark
@@ -39,7 +54,18 @@ namespace DataVisualization.Scripts
         [Command(requiresAuthority = false)]
         public void CmdSetMarkDropdownIndex(int index)
         {
-            markDropdownIndex = index;
+            if (NetworkClient.active)
+            {
+                markDropdownIndex = index;
+            }
+        }
+        
+        public void SetMarkDropdownIndex(int index)
+        {
+            if (NetworkClient.active)
+            {
+                CmdSetMarkDropdownIndex(index);
+            }
         }
 
         #endregion
@@ -92,6 +118,48 @@ namespace DataVisualization.Scripts
                 var target = list.GetChild(index);
                 target.GetComponent<ChannelItemAction>().DeleteThis();
             }
+        }
+
+        #endregion
+
+        #region 同步Item上的dropdowns
+
+        [Command(requiresAuthority = false)]
+        public void CmdSyncItemDropdown(NetworkIdentity invoker, int itemIndex, int dropdownIndex, int index)
+        {
+            RpcSyncItemDropdown(invoker, itemIndex, dropdownIndex, index);
+        }
+
+        [ClientRpc]
+        public void RpcSyncItemDropdown(NetworkIdentity invoker, int itemIndex, int dropdownIndex, int index)
+        {
+            if (invoker == NetworkClient.localPlayer)
+            {
+                return;
+            }
+
+            Transform list = gui.gameObject.transform.Find("ChannelList/Viewport/ChannelListContent");
+            if (list.childCount > itemIndex)
+            {
+                var target = list.GetChild(itemIndex);
+                target.GetComponent<ChannelItemAction>().dropdowns[dropdownIndex].value = index;
+            }
+        }
+
+        #endregion
+
+        #region 同步UpdateVis
+
+        [Command(requiresAuthority = false)]
+        public void CmdUpdateVis()
+        {
+            RpcUpdateVis();
+        }
+
+        [ClientRpc]
+        private void RpcUpdateVis()
+        {
+            GetComponent<Vis>().UpdateVis();
         }
 
         #endregion
