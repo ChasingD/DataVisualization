@@ -1,5 +1,6 @@
 ﻿using Mirror;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DataVisualization.Scripts
 {
@@ -66,7 +67,24 @@ namespace DataVisualization.Scripts
 
         #region 删除已有的一个Channel
 
-        
+        [Command(requiresAuthority = false)]
+        public void CmdDeleteItem(NetworkIdentity invoker, int index)
+        {
+            RpcDeleteItem(invoker, index);
+        }
+
+        [ClientRpc]
+        public void RpcDeleteItem(NetworkIdentity invoker, int index)
+        {
+            if (invoker == NetworkClient.localPlayer)
+            {
+                return;
+            }
+
+            Transform list = gui.gameObject.transform.Find("ChannelList/Viewport/ChannelListContent");
+            var target = list.GetChild(index);
+            target.GetComponent<ChannelItemAction>().DeleteThis();
+        }
 
         #endregion
     }
