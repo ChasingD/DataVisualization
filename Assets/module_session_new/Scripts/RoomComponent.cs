@@ -1,4 +1,5 @@
-﻿using Mirror.Discovery;
+﻿using Mirror;
+using Mirror.Discovery;
 using TMPro;
 using UnityEngine;
 
@@ -13,11 +14,11 @@ namespace Module.Session
         }
         public void SelectCurrentRoom()
         {
-            // FindObjectOfType<NetworkDiscovery>().networkAddress = TmpTextRoomAddress.text;
+            NetworkManager.singleton.networkAddress = TmpTextRoomAddress.text;
         }
         public void DeselectCurrentRoom()
         {
-            // FindObjectOfType<NetworkDiscovery>().networkAddress = string.Empty;
+            NetworkManager.singleton.networkAddress = string.Empty;
 
         }
         

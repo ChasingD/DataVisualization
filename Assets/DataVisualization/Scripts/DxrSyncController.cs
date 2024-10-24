@@ -46,6 +46,11 @@ namespace DataVisualization.Scripts
 
         #region 添加新Channel
 
+        public void AddItem()
+        {
+            CmdAddItem(NetworkClient.localPlayer);
+        }
+
         [Command(requiresAuthority = false)]
         public void CmdAddItem(NetworkIdentity invoker)
         {
@@ -82,8 +87,11 @@ namespace DataVisualization.Scripts
             }
 
             Transform list = gui.gameObject.transform.Find("ChannelList/Viewport/ChannelListContent");
-            var target = list.GetChild(index);
-            target.GetComponent<ChannelItemAction>().DeleteThis();
+            if (list.childCount > index)
+            {
+                var target = list.GetChild(index);
+                target.GetComponent<ChannelItemAction>().DeleteThis();
+            }
         }
 
         #endregion

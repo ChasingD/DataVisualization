@@ -7,9 +7,11 @@ namespace Module.Session
     {
         //[SerializeField]
         //private string lanHostPort;
-        
-        private async void Start()
+
+        protected async override void Start()
         {
+            base.Start();
+        
             await UniTask.Delay(1000);
 
             SessionManager.Instance.SearchRoomOnLAN();

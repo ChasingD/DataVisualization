@@ -717,6 +717,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1839989952319350276, guid: ee7aab085d2c6ae4ba169951a80b2e1a, type: 3}
+      propertyPath: Events.Array.data[2].Settings.Array.data[0].EventValue.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeselectCurrentRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839989952319350276, guid: ee7aab085d2c6ae4ba169951a80b2e1a, type: 3}
+      propertyPath: Events.Array.data[2].Settings.Array.data[0].EventValue.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Module.Session.RoomComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5897764780007802068, guid: ee7aab085d2c6ae4ba169951a80b2e1a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6

@@ -96,12 +96,12 @@ namespace Module.Session
 		//	Debug.LogError("加入房间传入的url" + url);
 
             NetworkManager.singleton.StartClient();
-
-            await UniTask.Delay(1000);
-
-            var all = SharedCollection.Instance.GetComponentsInChildren<PlayerController>(true);
-
-            Debug.LogError("目前玩家数量+" + all.Length);
+            //
+            // await UniTask.Delay(1000);
+            //
+            // var all = SharedCollection.Instance.GetComponentsInChildren<PlayerController>(true);
+            //
+            // Debug.LogError("目前玩家数量+" + all.Length);
         }
 
 		public void QuitRoom()

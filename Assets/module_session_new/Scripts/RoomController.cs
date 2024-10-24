@@ -32,7 +32,7 @@ namespace Module.Session
                 Destroy(item.RoomElementClone);
             };
         }
-        private void Start()
+        protected virtual void Start()
         {
             gridObjectCollection = GetComponent<GridObjectCollection>();
         }
