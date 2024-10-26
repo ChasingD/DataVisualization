@@ -11,7 +11,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/module_session/Scripts/LanRoomController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/861a5c79dc774632bf0cf15882d906dc2d600/d9/810e7c4c/GUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DataVisualization/Scripts/UGMarkerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/module_session_new/Scripts/SessionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.openxr@e514ec3d1b8c/Runtime/API/ARMarker/ARMarker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.openxr@e514ec3d1b8c/Runtime/API/ARMarker/ARMarkerScale.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -54,10 +60,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="附加到 Unity 编辑器" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="附加到 Unity 编辑器" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="24068">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="24068" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -85,7 +91,8 @@
       <updated>1729508642312</updated>
       <workItem from="1729508643634" duration="1651000" />
       <workItem from="1729576209978" duration="4023000" />
-      <workItem from="1729735064997" duration="320000" />
+      <workItem from="1729735064997" duration="12345000" />
+      <workItem from="1729927589403" duration="6972000" />
     </task>
     <servers />
   </component>
@@ -93,5 +100,50 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/DxR/Scripts/GUI.cs</url>
+          <line>641</line>
+          <properties documentPath="D:\Projects\DataVisualization\Assets\DxR\Scripts\GUI.cs" initialLine="640" containingFunctionPresentation="方法 'UpdateChannelsListOptions'">
+            <startOffsets>
+              <option value="26097" />
+            </startOffsets>
+            <endOffsets>
+              <option value="26212" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/DxR/Scripts/GUI.cs</url>
+          <line>500</line>
+          <properties documentPath="D:\Projects\DataVisualization\Assets\DxR\Scripts\GUI.cs" initialLine="499" containingFunctionPresentation="方法 'OnDataDropdownValueChanged'">
+            <startOffsets>
+              <option value="19906" />
+            </startOffsets>
+            <endOffsets>
+              <option value="20021" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/DxR/Scripts/GUI.cs</url>
+          <line>642</line>
+          <properties documentPath="D:\Projects\DataVisualization\Assets\DxR\Scripts\GUI.cs" initialLine="641" containingFunctionPresentation="方法 'UpdateChannelsListOptions'">
+            <startOffsets>
+              <option value="26225" />
+            </startOffsets>
+            <endOffsets>
+              <option value="26253" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

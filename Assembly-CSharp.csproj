@@ -53,27 +53,42 @@
     <Compile Include="Assets\module_session_new\Scripts\RoomList.cs" />
     <Compile Include="Assets\DataVisualization\Scripts\RootCollection.cs" />
     <Compile Include="Assets\DxR\Scripts\Tooltip.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\ProgressIndicator\Scripts\ProgressIndicatorDemoAsyncMethod.cs" />
     <Compile Include="Assets\DxR\Scripts\ScaleOrdinal.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\ObjectManipulator\Scripts\ReturnToBounds.cs" />
     <Compile Include="Assets\DxR\Resources\Marks\building\MarkBuilding.cs" />
     <Compile Include="Assets\DxR\Scripts\Mark.cs" />
     <Compile Include="Assets\DxR\Resources\Marks\blueflame\MarkBlueFlame.cs" />
     <Compile Include="Assets\DxR\Scripts\Scale.cs" />
     <Compile Include="Assets\module_session_new\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\Dwell\BaseDwellSample.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\ProgressIndicator\Scripts\IProgressIndicatorDemoObject.cs" />
     <Compile Include="Assets\module_session_new\Scripts\SyncController.cs" />
     <Compile Include="Assets\DxR\Scripts\ScaleLinear.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\Slider\Scripts\SliderLunarLander.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - Input\Scenes\DisablePointers\DisablePointersExample.cs" />
     <Compile Include="Assets\module_session_new\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - Input\Scenes\PrimaryPointer\PrimaryPointerHandlerExample.cs" />
     <Compile Include="Assets\DxR\Scripts\Analysis_timing.cs" />
     <Compile Include="Assets\DataVisualization\Scripts\ChannelItemAction.cs" />
     <Compile Include="Assets\DxR\Resources\Legend\Legend.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\Collections\Scripts\GridObjectLayoutControl.cs" />
     <Compile Include="Assets\DxR\Scripts\ScaleBand.cs" />
     <Compile Include="Assets\DataVisualization\Scripts\UGMarkerController.cs" />
     <Compile Include="Assets\module_session_new\Scripts\WorldAnchorManager.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\BoundingBox\Scripts\BoundingBoxExampleTest.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\ProgressIndicator\Scripts\ProgressIndicatorDemo.cs" />
     <Compile Include="Assets\DxR\Resources\Marks\fire\MarkFire.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\BoundsControl\Scripts\BoundsControlRuntimeExample.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\Dwell\ListItemDwell.cs" />
     <Compile Include="Assets\DataVisualization\Scripts\DxrSyncController.cs" />
     <Compile Include="Assets\DxR\Resources\GUI\GazeResponderButtons.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\ManipulationHandler\Scripts\ChangeManipulation.cs" />
     <Compile Include="Assets\module_session_new\Scripts\GenericNetworkTransmitter.cs" />
     <Compile Include="Assets\module_session_new\Scenes\Test.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\ProgressIndicator\Scripts\ProgressIndicatorDemoSceneLoad.cs" />
     <Compile Include="Assets\module_session_new\Scripts\RoomComponent.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - Input\Scenes\PointerResult\SpawnOnPointerEvent.cs" />
     <Compile Include="Assets\DxR\Scripts\MarkFixedPart.cs" />
     <Compile Include="Assets\DxR\Scripts\ScaleSequential.cs" />
     <Compile Include="Assets\DxR\Scripts\ChannelEncoding.cs" />
@@ -84,22 +99,30 @@
     <Compile Include="Assets\DxR\Scripts\Interactions.cs" />
     <Compile Include="Assets\DxR\Scripts\SimpleJSON.cs" />
     <Compile Include="Assets\DxR\Resources\Marks\bar\MarkBar.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - Input\Scenes\InputData\InputDataExample.cs" />
     <Compile Include="Assets\DxR\Resources\Marks\horse\HorseMark.cs" />
     <Compile Include="Assets\module_session_new\Scripts\RoomElement.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\Dialog\Scripts\DialogExampleController.cs" />
     <Compile Include="Assets\module_session_new\Scripts\UNetAnchorManager.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\Dwell\InstantDwellSample.cs" />
     <Compile Include="Assets\DxR\Scripts\ScalePoint.cs" />
     <Compile Include="Assets\DxR\Scripts\Parser.cs" />
     <Compile Include="Assets\module_session_new\Scripts\PlayerCommand.cs" />
     <Compile Include="Assets\module_session_new\Scripts\LanRoomController.cs" />
     <Compile Include="Assets\DxR\Scripts\Data.cs" />
     <Compile Include="Assets\module_session_new\Scripts\RoomController.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\ProgressIndicator\Scripts\ProgressIndicatorDemoAnimation.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - UX\Dwell\ToggleDwellSample.cs" />
     <Compile Include="Assets\DataVisualization\Scripts\HandMenuAction.cs" />
     <Compile Include="Assets\module_session_new\Scripts\NetworkDiscoveryWithAnchors.cs" />
     <Compile Include="Assets\DxR\Resources\Marks\audio\pitch.cs" />
     <Compile Include="Assets\DxR\Scripts\GazeResponder.cs" />
+    <Compile Include="Assets\DataVisualization\Scripts\MicrosoftHandInteractionLegacy.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - Input\Scenes\InputData\InputDataExampleGizmo.cs" />
     <Compile Include="Assets\DxR\Scripts\Vis.cs" />
     <Compile Include="Assets\module_session_new\Scripts\SessionManager.cs" />
     <Compile Include="Assets\DxR\Resources\Axis\Axis.cs" />
+    <Compile Include="Assets\Samples\Mixed Reality Toolkit Examples\2.8.3\Demos - Input\Scenes\InputActions\Rotator.cs" />
     <None Include="Assets\StreamingAssets\DxRSpecs\Examples\basketball_work_process\fourth.json" />
     <None Include="Assets\StreamingAssets\DxRSpecs\Examples\Drafts\policeshot.json" />
     <None Include="Assets\StreamingAssets\DxRSpecs\Examples\Multivariate_iris\scatterplot33.json" />
@@ -1196,6 +1219,10 @@
     <ProjectReference Include="Edgegap.csproj">
       <Project>{b2fba8c6-205c-680b-71ae-401d57f54c33}</Project>
       <Name>Edgegap</Name>
+    </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.UX.Interactables.csproj">
+      <Project>{cb99e182-c1f0-ad92-74c2-f7ac7f9060da}</Project>
+      <Name>Microsoft.MixedReality.Toolkit.Demos.UX.Interactables</Name>
     </ProjectReference>
     <ProjectReference Include="kcp2k.csproj">
       <Project>{7bd0a1e6-dd58-e45f-47c6-1d35136c553a}</Project>

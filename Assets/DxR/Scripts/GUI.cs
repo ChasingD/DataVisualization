@@ -6,12 +6,15 @@ using UnityEngine;
 using SimpleJSON;
 using UnityEngine.UI;
 using System;
+using DataVisualization.Scripts;
+using Microsoft.MixedReality.Toolkit.UI;
+using TMPro;
 using UnityEngine.EventSystems;
 
 namespace DxR
 {
     /// <summary>
-    /// Whenever a GUI action is performed, button clicked, dropdown clicked, etc., the guiVisSpecs is automatically updated so it 
+    /// Whenever a GUI action is performed, button clicked, TMP_Dropdown clicked, etc., the guiVisSpecs is automatically updated so it 
     /// should be in sync all the time. The visSpecs of the targetVis is only updated when calling UpdateVisSpecsFromGUISpecs, and 
     /// for the other way around, the guiVisSpecs is updated from the targetVis specs when calling UpdateGUISpecsFromVisSpecs.
     /// </summary>
@@ -19,18 +22,24 @@ namespace DxR
     {
         Vis targetVis = null;
         JSONNode guiVisSpecs = null;
-        public Dropdown dataDropdown = null;
-        public Dropdown markDropdown = null;
+        public TMP_Dropdown dataDropdown = null;
+        public TMP_Dropdown markDropdown = null;
         
-        Transform addChannelButtonTransform = null;
+        public Transform addChannelButtonTransform = null;
         GameObject channelGUIPrefab = null;
 
         Transform addInteractionButtonTransform = null;
         GameObject interactionGUIPrefab = null;
 
         List<string> dataFieldTypeDropdownOptions;
-        
-        
+
+        public Interactable updateButton;
+        public Interactable resetBtn;
+        public Interactable zoomInBtn;
+        public Interactable zoomOutBtn;
+        public Interactable rotateXBtn;
+        public Interactable rotateYBtn;
+        public Interactable rotateZBtn;
         // Use this for initialization
         void Start()
         {
@@ -52,25 +61,25 @@ namespace DxR
             dataFieldTypeDropdownOptions = new List<string> { "quantitative", "nominal", "ordinal", "temporal" };
 
             Transform dataDropdownTransform = gameObject.transform.Find("DataDropdown");
-            dataDropdown = dataDropdownTransform.gameObject.GetComponent<Dropdown>();
+            // dataDropdown = dataDropdownTransform.gameObject.GetComponent<TMP_Dropdown>();
             dataDropdown.onValueChanged.AddListener(delegate {
                 OnDataDropdownValueChanged(dataDropdown);
             });
 
             Transform marksDropdownTransform = gameObject.transform.Find("MarkDropdown");
-            markDropdown = marksDropdownTransform.gameObject.GetComponent<Dropdown>();
+            // markDropdown = marksDropdownTransform.gameObject.GetComponent<TMP_Dropdown>();
             markDropdown.onValueChanged.AddListener(delegate {
                 OnMarkDropdownValueChanged(markDropdown);
             });
 
-            Button btn = gameObject.transform.Find("UpdateButton").GetComponent<Button>();
-            btn.onClick.AddListener(CallUpdateVisSpecsFromGUISpecs);
+            // Button btn = gameObject.transform.Find("UpdateButton").GetComponent<Button>();
+            updateButton.OnClick.AddListener(CallUpdateVisSpecsFromGUISpecs);
 
             channelGUIPrefab = Resources.Load("GUI/ChannelGUI") as GameObject;
 
-            addChannelButtonTransform = gameObject.transform.Find("ChannelList/Viewport/ChannelListContent/AddChannelButton");
-            Button addChannelBtn = addChannelButtonTransform.GetComponent<Button>();
-            addChannelBtn.onClick.AddListener(AddEmptyChannelGUICallback);
+            // addChannelButtonTransform = gameObject.transform.Find("ChannelList/Viewport/ChannelListContent/AddChannelButton");
+            Interactable addChannelBtn = addChannelButtonTransform.GetComponent<Interactable>();
+            addChannelBtn.OnClick.AddListener(AddEmptyChannelGUICallback);
 
 #if USE_INTERACTION_GUI
             
@@ -86,23 +95,23 @@ namespace DxR
 
         private void InitInteractiveButtons()
         {
-            Button resetBtn = gameObject.transform.Find("ResetButton").GetComponent<Button>();
-            resetBtn.onClick.AddListener(ResetCallback);
+            // resetBtn = gameObject.transform.Find("ResetButton").GetComponent<Button>();
+            resetBtn.OnClick.AddListener(ResetCallback);
 
-            Button zoomInBtn = gameObject.transform.Find("ZoomInButton").GetComponent<Button>();
-            zoomInBtn.onClick.AddListener(ZoomInCallback);
+            // zoomInBtn = gameObject.transform.Find("ZoomInButton").GetComponent<Button>();
+            zoomInBtn.OnClick.AddListener(ZoomInCallback);
 
-            Button zoomOutBtn = gameObject.transform.Find("ZoomOutButton").GetComponent<Button>();
-            zoomOutBtn.onClick.AddListener(ZoomOutCallback);
+            // zoomOutBtn = gameObject.transform.Find("ZoomOutButton").GetComponent<Button>();
+            zoomOutBtn.OnClick.AddListener(ZoomOutCallback);
 
-            Button rotateXBtn = gameObject.transform.Find("RotateXButton").GetComponent<Button>();
-            rotateXBtn.onClick.AddListener(RotateXCallback);
+            // rotateXBtn = gameObject.transform.Find("RotateXButton").GetComponent<Button>();
+            rotateXBtn.OnClick.AddListener(RotateXCallback);
 
-            Button rotateYBtn = gameObject.transform.Find("RotateYButton").GetComponent<Button>();
-            rotateYBtn.onClick.AddListener(RotateYCallback);
+            // rotateYBtn = gameObject.transform.Find("RotateYButton").GetComponent<Button>();
+            rotateYBtn.OnClick.AddListener(RotateYCallback);
 
-            Button rotateZBtn = gameObject.transform.Find("RotateZButton").GetComponent<Button>();
-            rotateZBtn.onClick.AddListener(RotateZCallback);
+            // rotateZBtn = gameObject.transform.Find("RotateZButton").GetComponent<Button>();
+            rotateZBtn.OnClick.AddListener(RotateZCallback);
         }
 
         public void RotateXCallback()
@@ -163,7 +172,7 @@ namespace DxR
 
             List<string> marksList = targetVis.GetMarksList();
 
-            // Update the dropdown options:
+            // Update the TMP_Dropdown options:
             UpdateGUIDataDropdownList(targetVis.GetDataList());
             UpdateGUIMarksDropdownList(marksList);
 
@@ -172,7 +181,7 @@ namespace DxR
                 throw new Exception("Cannot find mark name in DxR/Resources/Marks/marks.json");
             }
 
-            // Update the dropdown values:
+            // Update the TMP_Dropdown values:
             UpdateDataDropdownValue(guiVisSpecs["data"]["url"].Value);
 UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
@@ -234,22 +243,22 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
         private void UpdateInteractionGUIInteractionTypeDropdownValue(string value, ref GameObject interactionGUI)
         {
-            Dropdown dropdown = interactionGUI.transform.Find("InteractionTypeDropdown").GetComponent<Dropdown>();
-            int valueIndex = GetOptionIndex(dropdown, value);
+            TMP_Dropdown TMP_Dropdown = interactionGUI.transform.Find("InteractionTypeDropdown").GetComponent<TMP_Dropdown>();
+            int valueIndex = GetOptionIndex(TMP_Dropdown, value);
             if (valueIndex > 0)
             {
-                dropdown.value = valueIndex;
+                TMP_Dropdown.value = valueIndex;
             }
         }
 
         private void UpdateInteractionGUIDataFieldDropdownValue(string value, ref GameObject interactionGUI)
         {
-            Dropdown dropdown = interactionGUI.transform.Find("DataFieldDropdown").GetComponent<Dropdown>();
-            //string prevValue = dropdown.options[dropdown.value].text;
-            int valueIndex = GetOptionIndex(dropdown, value);
+            TMP_Dropdown TMP_Dropdown = interactionGUI.transform.Find("DataFieldDropdown").GetComponent<TMP_Dropdown>();
+            //string prevValue = TMP_Dropdown.options[TMP_Dropdown.value].text;
+            int valueIndex = GetOptionIndex(TMP_Dropdown, value);
             if (valueIndex > 0)
             {
-                dropdown.value = valueIndex;
+                TMP_Dropdown.value = valueIndex;
             }
         }
 
@@ -272,31 +281,31 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
         private void UpdateChannelGUIDataFieldTypeDropdownValue(string value, ref GameObject channelGUI)
         {
-            Dropdown dropdown = channelGUI.transform.Find("DataFieldTypeDropdown").GetComponent<Dropdown>();
-            int valueIndex = GetOptionIndex(dropdown, value);
+            TMP_Dropdown TMP_Dropdown = channelGUI.GetComponent<ChannelItemAction>().dropdowns[2].GetComponent<TMP_Dropdown>();
+            int valueIndex = GetOptionIndex(TMP_Dropdown, value);
             if (valueIndex > 0)
             {
-                dropdown.value = valueIndex;
+                TMP_Dropdown.value = valueIndex;
             }
         }
 
         private void UpdateChannelGUIDataFieldDropdownValue(string value, ref GameObject channelGUI)
         {
-            Dropdown dropdown = channelGUI.transform.Find("DataFieldDropdown").GetComponent<Dropdown>();
-            int valueIndex = GetOptionIndex(dropdown, value);
+            TMP_Dropdown TMP_Dropdown = channelGUI.GetComponent<ChannelItemAction>().dropdowns[1].GetComponent<TMP_Dropdown>();
+            int valueIndex = GetOptionIndex(TMP_Dropdown, value);
             if (valueIndex > 0)
             {
-                dropdown.value = valueIndex;
+                TMP_Dropdown.value = valueIndex;
             }
         }
 
         private void UpdateChannelGUIChannelDropdownValue(string value, ref GameObject channelGUI)
         {
-            Dropdown dropdown = channelGUI.transform.Find("ChannelDropdown").GetComponent<Dropdown>();
-            int valueIndex = GetOptionIndex(dropdown, value);
+            TMP_Dropdown TMP_Dropdown = channelGUI.GetComponent<ChannelItemAction>().dropdowns[0].GetComponent<TMP_Dropdown>();
+            int valueIndex = GetOptionIndex(TMP_Dropdown, value);
             if (valueIndex > 0)
             {
-                dropdown.value = valueIndex;
+                TMP_Dropdown.value = valueIndex;
             }
         }
 
@@ -340,16 +349,16 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
                 GameObject channelGUI = channelListContent.GetChild(i).gameObject;
                 JSONObject channelSpecs = new JSONObject();
                 
-                Dropdown dropdown = channelGUI.transform.Find("DataFieldDropdown").GetComponent<Dropdown>();
-                string dataField = dropdown.options[dropdown.value].text;
+                TMP_Dropdown TMP_Dropdown = channelGUI.transform.Find("DataFieldDropdown").GetComponent<TMP_Dropdown>();
+                string dataField = TMP_Dropdown.options[TMP_Dropdown.value].text;
                 channelSpecs.Add("field", new JSONString(dataField));
 
-                dropdown = channelGUI.transform.Find("DataFieldTypeDropdown").GetComponent<Dropdown>();
-                string dataFieldType = dropdown.options[dropdown.value].text;
+                TMP_Dropdown = channelGUI.transform.Find("DataFieldTypeDropdown").GetComponent<TMP_Dropdown>();
+                string dataFieldType = TMP_Dropdown.options[TMP_Dropdown.value].text;
                 channelSpecs.Add("type", new JSONString(dataFieldType));
 
-                dropdown = channelGUI.transform.Find("ChannelDropdown").GetComponent<Dropdown>();
-                string channel = dropdown.options[dropdown.value].text;
+                TMP_Dropdown = channelGUI.transform.Find("ChannelDropdown").GetComponent<TMP_Dropdown>();
+                string channel = TMP_Dropdown.options[TMP_Dropdown.value].text;
                 encodingObject.Add(channel, channelSpecs);
             }
 
@@ -366,12 +375,12 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
                 GameObject interactionGUI = interactionListContent.GetChild(i).gameObject;
                 JSONObject interactionSpecs = new JSONObject();
 
-                Dropdown dropdown = interactionGUI.transform.Find("DataFieldDropdown").GetComponent<Dropdown>();
-                string dataField = dropdown.options[dropdown.value].text;
+                TMP_Dropdown TMP_Dropdown = interactionGUI.transform.Find("DataFieldDropdown").GetComponent<TMP_Dropdown>();
+                string dataField = TMP_Dropdown.options[TMP_Dropdown.value].text;
                 interactionSpecs.Add("field", new JSONString(dataField));
 
-                dropdown = interactionGUI.transform.Find("InteractionTypeDropdown").GetComponent<Dropdown>();
-                string interactionType = dropdown.options[dropdown.value].text;
+                TMP_Dropdown = interactionGUI.transform.Find("InteractionTypeDropdown").GetComponent<TMP_Dropdown>();
+                string interactionType = TMP_Dropdown.options[TMP_Dropdown.value].text;
                 interactionSpecs.Add("type", new JSONString(interactionType));
 
                 interactionArrayObject.Add(interactionSpecs);
@@ -393,7 +402,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
         }
 
         // TODO:
-        public void OnChannelGUIChannelDropdownValueChanged(Dropdown changed)
+        public void OnChannelGUIChannelDropdownValueChanged(TMP_Dropdown changed)
         {
             Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
@@ -407,7 +416,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
         }
 
         // TODO:
-        public void OnChannelGUIDataFieldDropdownValueChanged(Dropdown changed)
+        public void OnChannelGUIDataFieldDropdownValueChanged(TMP_Dropdown changed)
         {
             Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
@@ -420,7 +429,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
             }
         }
 
-        public void OnInteractionGUIDataFieldDropdownValueChanged(Dropdown changed, GameObject interactionGUI)
+        public void OnInteractionGUIDataFieldDropdownValueChanged(TMP_Dropdown changed, GameObject interactionGUI)
         {
             Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
@@ -442,7 +451,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
             
         }
 
-        public void OnInteractionGUIInteractionTypeDropdownValueChanged(Dropdown changed, GameObject interactionGUI)
+        public void OnInteractionGUIInteractionTypeDropdownValueChanged(TMP_Dropdown changed, GameObject interactionGUI)
         {
             Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
@@ -458,7 +467,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
         }
 
         // TODO:
-        public void OnChannelGUIDataFieldTypeDropdownValueChanged(Dropdown changed)
+        public void OnChannelGUIDataFieldTypeDropdownValueChanged(TMP_Dropdown changed)
         {
             Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
@@ -471,7 +480,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
             }
         }
 
-        public void OnDataDropdownValueChanged(Dropdown changed)
+        public void OnDataDropdownValueChanged(TMP_Dropdown changed)
         {
             Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = guiVisSpecs["data"]["url"].Value;
@@ -489,12 +498,12 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
                 {
                     GameObject channelGUI = channelListContent.GetChild(i).gameObject;
                     
-                    Dropdown dropdown = channelGUI.transform.Find("ChannelDropdown").GetComponent<Dropdown>();
-                    string channel = dropdown.options[dropdown.value].text;
+                    TMP_Dropdown TMP_Dropdown = channelGUI.GetComponent<ChannelItemAction>().dropdowns[0].GetComponent<TMP_Dropdown>();
+                    string channel = TMP_Dropdown.options[TMP_Dropdown.value].text;
 
                     if(!newDataFields.Contains(channel))
                     {
-                        dropdown = channelGUI.transform.Find("DataFieldDropdown").GetComponent<Dropdown>();
+                        TMP_Dropdown = channelGUI.GetComponent<ChannelItemAction>().dropdowns[1].GetComponent<TMP_Dropdown>();
                         UpdateChannelGUIDataFieldDropdownValue("undefined", ref channelGUI);
                     }
                 }
@@ -505,7 +514,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
             }
         }
 
-        public void OnMarkDropdownValueChanged(Dropdown changed)
+        public void OnMarkDropdownValueChanged(TMP_Dropdown changed)
         {
             Debug.Log("New mark " + changed.options[changed.value].text);
             string prevValue = guiVisSpecs["mark"].Value;
@@ -572,67 +581,67 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
         private void AddChannelGUIDeleteCallback(ref GameObject channelGUI)
         {
             Transform deleteChannelObject = channelGUI.transform.Find("DeleteChannelButton");
-            Button btn = deleteChannelObject.gameObject.GetComponent<Button>();
-            btn.onClick.AddListener(DeleteParentOfClickedObjectCallback);
+            Interactable btn = deleteChannelObject.gameObject.GetComponent<Interactable>();
+            btn.OnClick.AddListener(DeleteParentOfClickedObjectCallback);
         }
 
         private void AddInteractionGUIDeleteCallback(ref GameObject interactionGUI)
         {
             Transform deleteInteractionObject = interactionGUI.transform.Find("DeleteInteractionButton");
-            Button btn = deleteInteractionObject.gameObject.GetComponent<Button>();
-            btn.onClick.AddListener(DeleteParentOfClickedObjectCallback);
+            Interactable btn = deleteInteractionObject.gameObject.GetComponent<Interactable>();
+            btn.OnClick.AddListener(DeleteParentOfClickedObjectCallback);
         }
 
         private void AddChannelGUIChannelCallback(ref GameObject channelGUI)
         {
-            Transform dropdownObject = channelGUI.transform.Find("ChannelDropdown");
-            Dropdown dropdown = dropdownObject.gameObject.GetComponent<Dropdown>();
-            dropdown.onValueChanged.AddListener(delegate {
-                OnChannelGUIChannelDropdownValueChanged(dropdown);
+            Transform dropdownObject = channelGUI.GetComponent<ChannelItemAction>().dropdowns[0].transform;
+            TMP_Dropdown TMP_Dropdown = dropdownObject.gameObject.GetComponent<TMP_Dropdown>();
+            TMP_Dropdown.onValueChanged.AddListener(delegate {
+                OnChannelGUIChannelDropdownValueChanged(TMP_Dropdown);
             });
         }
 
         private void AddChannelGUIDataFieldCallback(ref GameObject channelGUI)
         {
-            Transform dropdownObject = channelGUI.transform.Find("DataFieldDropdown");
-            Dropdown dropdown = dropdownObject.gameObject.GetComponent<Dropdown>();
-            dropdown.onValueChanged.AddListener(delegate {
-                OnChannelGUIDataFieldDropdownValueChanged(dropdown);
+            Transform dropdownObject = channelGUI.GetComponent<ChannelItemAction>().dropdowns[1].transform;
+            TMP_Dropdown TMP_Dropdown = dropdownObject.gameObject.GetComponent<TMP_Dropdown>();
+            TMP_Dropdown.onValueChanged.AddListener(delegate {
+                OnChannelGUIDataFieldDropdownValueChanged(TMP_Dropdown);
             });
         }
 
         private void AddInteractionGUIDataFieldCallback(GameObject interactionGUI)
         {
             Transform dropdownObject = interactionGUI.transform.Find("DataFieldDropdown");
-            Dropdown dropdown = dropdownObject.gameObject.GetComponent<Dropdown>();
-            dropdown.onValueChanged.AddListener(delegate {
-                OnInteractionGUIDataFieldDropdownValueChanged(dropdown, interactionGUI);
+            TMP_Dropdown TMP_Dropdown = dropdownObject.gameObject.GetComponent<TMP_Dropdown>();
+            TMP_Dropdown.onValueChanged.AddListener(delegate {
+                OnInteractionGUIDataFieldDropdownValueChanged(TMP_Dropdown, interactionGUI);
             });
         }
 
         private void AddInteractionGUIInteractionTypeCallback(GameObject interactionGUI)
         {
             Transform dropdownObject = interactionGUI.transform.Find("InteractionTypeDropdown");
-            Dropdown dropdown = dropdownObject.gameObject.GetComponent<Dropdown>();
-            dropdown.onValueChanged.AddListener(delegate {
-                OnInteractionGUIInteractionTypeDropdownValueChanged(dropdown, interactionGUI);
+            TMP_Dropdown TMP_Dropdown = dropdownObject.gameObject.GetComponent<TMP_Dropdown>();
+            TMP_Dropdown.onValueChanged.AddListener(delegate {
+                OnInteractionGUIInteractionTypeDropdownValueChanged(TMP_Dropdown, interactionGUI);
             });
         }
 
         private void AddChannelGUIDataFieldTypeCallback(ref GameObject channelGUI)
         {
-            Transform dropdownObject = channelGUI.transform.Find("DataFieldTypeDropdown");
-            Dropdown dropdown = dropdownObject.gameObject.GetComponent<Dropdown>();
-            dropdown.onValueChanged.AddListener(delegate {
-                OnChannelGUIDataFieldTypeDropdownValueChanged(dropdown);
+            Transform dropdownObject = channelGUI.GetComponent<ChannelItemAction>().dropdowns[1].transform;
+            TMP_Dropdown TMP_Dropdown = dropdownObject.gameObject.GetComponent<TMP_Dropdown>();
+            TMP_Dropdown.onValueChanged.AddListener(delegate {
+                OnChannelGUIDataFieldTypeDropdownValueChanged(TMP_Dropdown);
             });
         }
 
         private void UpdateChannelsListOptions(ref GameObject channelGUI)
         {
-            Dropdown dropdown = channelGUI.transform.Find("ChannelDropdown").GetComponent<Dropdown>();
-            dropdown.ClearOptions();
-            dropdown.AddOptions(GetChannelDropdownOptions());
+            TMP_Dropdown TMP_Dropdown = channelGUI.GetComponent<ChannelItemAction>().dropdowns[0].GetComponent<TMP_Dropdown>();
+            TMP_Dropdown.ClearOptions();
+            TMP_Dropdown.AddOptions(GetChannelDropdownOptions());
         }
 
         private void DeleteParentOfClickedObjectCallback()
@@ -649,9 +658,9 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
         private void UpdateDataFieldListOptions(ref GameObject channelGUI)
         {
-            Dropdown dropdown = channelGUI.transform.Find("DataFieldDropdown").GetComponent<Dropdown>();
-            dropdown.ClearOptions();
-            dropdown.AddOptions(GetDataFieldDropdownOptions());
+            TMP_Dropdown TMP_Dropdown = channelGUI.GetComponent<ChannelItemAction>().dropdowns[1].GetComponent<TMP_Dropdown>();
+            TMP_Dropdown.ClearOptions();
+            TMP_Dropdown.AddOptions(GetDataFieldDropdownOptions());
         }
 
         public List<string> GetDataFieldDropdownOptions()
@@ -682,9 +691,9 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
         private void UpdateDataFieldTypeOptions(ref GameObject channelGUI)
         {
-            Dropdown dropdown = channelGUI.transform.Find("DataFieldTypeDropdown").GetComponent<Dropdown>();
-            dropdown.ClearOptions();
-            dropdown.AddOptions(dataFieldTypeDropdownOptions);
+            TMP_Dropdown TMP_Dropdown = channelGUI.GetComponent<ChannelItemAction>().dropdowns[2].GetComponent<TMP_Dropdown>();
+            TMP_Dropdown.ClearOptions();
+            TMP_Dropdown.AddOptions(dataFieldTypeDropdownOptions);
         }
 
         public void UpdateGUIMarksDropdownList(List<string> marksList)
@@ -699,11 +708,11 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
             dataDropdown.AddOptions(dataList);
         }
 
-        private int GetOptionIndex(Dropdown dropdown, string value)
+        private int GetOptionIndex(TMP_Dropdown TMP_Dropdown, string value)
         {
-            for (int i = 0; i < dropdown.options.Count; i++)
+            for (int i = 0; i < TMP_Dropdown.options.Count; i++)
             {
-                if (dropdown.options[i].text == value)
+                if (TMP_Dropdown.options[i].text == value)
                 {
                     return i;
                 }

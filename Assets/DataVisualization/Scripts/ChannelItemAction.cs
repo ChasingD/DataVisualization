@@ -1,12 +1,12 @@
 ﻿using Mirror;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace DataVisualization.Scripts
 {
     public class ChannelItemAction : MonoBehaviour
     {
-        public Dropdown[] dropdowns;
+        public TMP_Dropdown[] dropdowns;
 
         public void DeleteThis()
         {

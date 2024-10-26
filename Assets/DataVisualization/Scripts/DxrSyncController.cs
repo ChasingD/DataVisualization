@@ -12,7 +12,7 @@ namespace DataVisualization.Scripts
 
         private void Start()
         {
-            transform.SetParent(RootCollection.Instance.transform);
+            transform.SetParent(RootCollection.Instance.transform, false);
         }
 
         #region data
@@ -159,7 +159,7 @@ namespace DataVisualization.Scripts
         [ClientRpc]
         private void RpcUpdateVis()
         {
-            GetComponent<Vis>().UpdateVis();
+            gui.CallUpdateVisSpecsFromGUISpecs();
         }
 
         #endregion

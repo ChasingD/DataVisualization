@@ -25,17 +25,18 @@ namespace DataVisualization.Scripts
             {
                 print($"识别到{arMarker.GetDecodedString()}，期望{markerContent}");
                 // SceneRoot.Instance.followTarget = transform;
-                following = true;
+                root.position = transform.position;
+                root.localEulerAngles = new Vector3(root.localEulerAngles.x, transform.GetChild(0).localEulerAngles.y, root.localEulerAngles.z);
             }
         }
 
-        private void Update()
-        {
-            if (following)
-            {
-                root.position = transform.position;
-                root.localEulerAngles = new Vector3(root.localEulerAngles.x, transform.localEulerAngles.y, root.localEulerAngles.z);
-            }
-        }
+        // private void Update()
+        // {
+        //     if (following)
+        //     {
+        //         root.position = transform.position;
+        //         root.localEulerAngles = new Vector3(root.localEulerAngles.x, transform.localEulerAngles.y + 180, root.localEulerAngles.z);
+        //     }
+        // }
     }
 }

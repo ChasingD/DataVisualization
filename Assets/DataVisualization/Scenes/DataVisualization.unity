@@ -709,9 +709,33 @@ PrefabInstance:
       propertyPath: sceneId
       value: 272637255
       objectReference: {fileID: 0}
+    - target: {fileID: 3194683827713931194, guid: c3381f558da66df49a96d4f6ffcc9b06, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4184892557267408000, guid: c3381f558da66df49a96d4f6ffcc9b06, type: 3}
       propertyPath: m_Name
       value: DxRVis
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172467858871552688, guid: c3381f558da66df49a96d4f6ffcc9b06, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432269814104252108, guid: c3381f558da66df49a96d4f6ffcc9b06, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432269814104252108, guid: c3381f558da66df49a96d4f6ffcc9b06, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432269814104252108, guid: c3381f558da66df49a96d4f6ffcc9b06, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432269814104252108, guid: c3381f558da66df49a96d4f6ffcc9b06, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7946238147249936466, guid: c3381f558da66df49a96d4f6ffcc9b06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -781,7 +805,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6361539359052127496, guid: c3381f558da66df49a96d4f6ffcc9b06, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

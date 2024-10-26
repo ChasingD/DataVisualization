@@ -218,6 +218,7 @@ MonoBehaviour:
   - {fileID: -5992868618282506159}
   - {fileID: -2421800252026356296}
   - {fileID: -3176757185409793617}
+  - {fileID: 5956422320432408263}
   - {fileID: 2299525040037842987}
   - {fileID: -5362639247299636865}
   - {fileID: 178996820373826728}
@@ -234,6 +235,26 @@ MonoBehaviour:
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
+--- !u!114 &-4077908846711466775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a58711c5a9b1a684ba6c84cf9f32402d, type: 3}
+  m_Name: MicrosoftHandInteractionLegacy Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Microsoft Hand Interaction Profile (Legacy)
+  version: 0.0.1
+  featureIdInternal: com.microsoft.openxr.feature.interaction.handtrackinglegacy
+  openxrExtensionStrings: XR_MSFT_hand_interaction
+  company: Microsoft
+  priority: 0
+  required: 0
 --- !u!114 &-3652759612882190880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f928d0d73a35f294fbe357ca17aa3547, type: 3}
   m_Name: MicrosoftHandInteraction Metro
   m_EditorClassIdentifier: 
-  m_enabled: 1
+  m_enabled: 0
   nameUi: Microsoft Hand Interaction Profile
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.input.handtracking
@@ -758,6 +779,7 @@ MonoBehaviour:
   - {fileID: 538398291573538169}
   - {fileID: 424702656837338526}
   - {fileID: 5722687196221784488}
+  - {fileID: -4077908846711466775}
   - {fileID: -2042610209225107197}
   - {fileID: 7609801190002516038}
   - {fileID: 2583309355527877559}
@@ -814,6 +836,26 @@ MonoBehaviour:
   featureIdInternal: com.unity.openxr.feature.input.handtracking
   openxrExtensionStrings: XR_MSFT_hand_interaction
   company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &5956422320432408263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a58711c5a9b1a684ba6c84cf9f32402d, type: 3}
+  m_Name: MicrosoftHandInteractionLegacy Metro
+  m_EditorClassIdentifier: 
+  m_enabled: 1
+  nameUi: Microsoft Hand Interaction Profile (Legacy)
+  version: 0.0.1
+  featureIdInternal: com.microsoft.openxr.feature.interaction.handtrackinglegacy
+  openxrExtensionStrings: XR_MSFT_hand_interaction
+  company: Microsoft
   priority: 0
   required: 0
 --- !u!114 &6011510027976950252

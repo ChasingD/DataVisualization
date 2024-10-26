@@ -998,6 +998,10 @@
       <Project>{b2fba8c6-205c-680b-71ae-401d57f54c33}</Project>
       <Name>Edgegap</Name>
     </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.UX.Interactables.csproj">
+      <Project>{cb99e182-c1f0-ad92-74c2-f7ac7f9060da}</Project>
+      <Name>Microsoft.MixedReality.Toolkit.Demos.UX.Interactables</Name>
+    </ProjectReference>
     <ProjectReference Include="kcp2k.csproj">
       <Project>{7bd0a1e6-dd58-e45f-47c6-1d35136c553a}</Project>
       <Name>kcp2k</Name>

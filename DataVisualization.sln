@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mirror.CodeGen", "Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask", "UniTask.csproj", "{a60b2254-9a13-e5b3-6c2c-af96f1baf7d0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.MixedReality.Toolkit.Demos.UX.Interactables", "Microsoft.MixedReality.Toolkit.Demos.UX.Interactables.csproj", "{cb99e182-c1f0-ad92-74c2-f7ac7f9060da}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{c500c673-ae2c-7694-d0b0-3973eef0370a}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Editor", "Mirror.Editor.csproj", "{e3503797-f22d-f5b2-718e-ce25f267ff50}"
@@ -66,6 +68,8 @@ Global
 		{16a6850d-e278-0d74-9adf-8a9aa64f0d24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{a60b2254-9a13-e5b3-6c2c-af96f1baf7d0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{a60b2254-9a13-e5b3-6c2c-af96f1baf7d0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{cb99e182-c1f0-ad92-74c2-f7ac7f9060da}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{cb99e182-c1f0-ad92-74c2-f7ac7f9060da}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{c500c673-ae2c-7694-d0b0-3973eef0370a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{c500c673-ae2c-7694-d0b0-3973eef0370a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e3503797-f22d-f5b2-718e-ce25f267ff50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
